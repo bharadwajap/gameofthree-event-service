@@ -7,15 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.takeaway.gameofthree.event.model.GameMoveEvent;
-import com.takeaway.gameofthree.event.service.GameEventProducer;
+import com.takeaway.gameofthree.event.service.GameEventService;
 
 @RestController
 @RequestMapping(value = "/gameofthree/events/")
 public class GameEventController {
 
 	@Autowired
-	private GameEventProducer evenProducer;
+	private GameEventService eventService;
 
 
 	@PostMapping(value = "/{gameId}/move/{moveId}")
@@ -23,7 +22,7 @@ public class GameEventController {
 			@PathVariable(name = "moveId") Integer moveId, 
 			@RequestParam("player") String player) {
 
-		evenProducer.send(new GameMoveEvent(gameId, moveId, player));
+		eventService.send(gameId, moveId, player);
 
 		return "Message sent to the RabbitMQ Successfully";
 	}
