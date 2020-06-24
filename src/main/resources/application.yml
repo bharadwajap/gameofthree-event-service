@@ -1,0 +1,15 @@
+spring:
+  rabbitmq:
+    host: 52.43.241.90
+    port: 5672
+    username: guest
+    password: guest
+config:
+  rabbitmq:
+    exchange: amq.direct
+    queue: 
+      player1: gameofthree-player1-queue
+      player2: gameofthree-player2-queue
+    routingkey:
+      player1: gameofthree-player1
+      player2: gameofthree-player2
