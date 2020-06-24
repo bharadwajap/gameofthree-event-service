@@ -9,7 +9,6 @@ PS: A local installtion of Rabbit MQ server is required for this service to run 
 ### How to Build and Run
 Project is build using Maven.
 
-Run below commands to bring both the players up and running. Based on the configuration files, both players run on different
-ports with different application names.
+Run below command to bring the event service up and running. 
 
 `java -jar gameofthree-event-service-0.0.1-SNAPSHOT.jar`
